@@ -1,16 +1,17 @@
 # A3: Caching + Barcode Generator
 
-Students will create an “barcode” program where they read in user-supplied arguments, use malloc to create an image struct/pixel array, and manipulate the pixel array to generate a barcode. 
-- Develops general C programming skills
-- Requires an understanding of functions, pointers, data structures, and memory allocation in C 
-- Measure the cache behavior of our image filters
+In this assignment, we will create an “barcode” program where they read in user-supplied arguments, use malloc to create an image struct/pixel array, and manipulate the pixel array to generate a barcode!
+
+Then, we will inspect how image operations can impact the cache! We will measure various "filtering" operations with `cachegrind`.
 
 
 # Image Calculator
 
-In this problem set, we will be building several operations of an image calculator in C.
+In this problem set, we will be building a "barcode" functionality for an image calculator in C.
 
-Our C image calculator will allow us to take in as input, a path to an input image, width, height, a specified operation, and an output path. Then, our C image calculator, will perform the operation on the input image and save the new image at the output path.
+Our C image calculator will allow us to take in as input, a path to an barcode digit string, width, height, a specified operation, and an output path. 
+
+Then, our C image calculator, will perform the barcode operation on the input barcode digit string and save the new image at the output path.
 
 ## Step 0: What is an image and provided loader.c 
 
