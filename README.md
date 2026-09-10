@@ -9,7 +9,7 @@ Then, we will inspect how image operations can impact the cache! We will measure
 
 In this problem set, we will be building a "barcode" functionality for an image calculator in C.
 
-Our C image calculator will allow us to take in as input, a path to an barcode digit string, width, height, a specified operation, and an output path. 
+Our C image calculator will allow us to take in as input, a path to an barcode digit string, width, height, and an output path. 
 
 Then, our C image calculator, will perform the barcode operation on the input barcode digit string and save the new image at the output path.
 
@@ -84,7 +84,7 @@ To find the dimension of an image, use the following command:
 
 ## Step 2: Barcode 
 
-Now we wish to add a barcode-generation functionality to our image calculator. This will be a fair bit more difficult than reflect, as it is a fairly sophisticated operation.
+Now we wish to add a barcode-generation functionality to our image calculator. 
 
 ### What is a barcode?
 
@@ -232,7 +232,12 @@ Tips:
     - ```./build/image_calc 071537020427 113 42 barcode barcode.bmp```
 - commit your changes, navigate to `barcode.bmp` on github.com, and click "view raw" in order to view your bmp image!
 
-At this point running `./test.sh` should show that your code passes all tests.
+At this point running `./test.sh` should show that your code passes the first three tests.
+
+Notice that one of the tests ensures that there are no detected leaks when running the command:
+```
+valgrind --leak-check=full ./build/image_calc "071537020427" 113 42 "barcode-1.bmp"
+```
 
 ## Step 3: Profiling our Image Filter
 
@@ -253,7 +258,6 @@ For example:
 Our goal is to analyze the performance of these two implementations.
 You should see they produce identical results (they are both correct), however, we wonder, do they have differing performance?
 
-**Please answer the following questions in a new PDF, which will be uploaded to gradescope**
 
 #### Step 3a: Inspecting filter1() and filter2()
 
@@ -263,7 +267,6 @@ What is the functionality of filter1 and filter2? What do these two functions re
 > TASK: How do `filter1` and `filter2` differ in their implementation? They are practically identical except for one small difference. Read the code for both functions. What is the difference?
 > Write your answer in `questions.txt`. Label your answer `(1)`.
 
-Write your answer in your PDF write-up.
 
 ### Profiling
 

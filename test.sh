@@ -13,13 +13,12 @@ check_image_operation() {
     local input_image=$1
     local width=$2
     local height=$3
-    local operation=$4
-    local output_image=$5
-    local reference_image=$6
+    local output_image=$4
+    local reference_image=$5
 
     # Run the operation
-    echo "./build/image_calc $input_image $width $height $operation $output_image"
-    ./build/image_calc "$input_image" "$width" "$height" "$operation" "$output_image" > /dev/null
+    echo "./build/image_calc $input_image $width $height $output_image"
+    ./build/image_calc "$input_image" "$width" "$height" "$output_image" > /dev/null
     
 
 
@@ -43,6 +42,17 @@ check_image_operation() {
 check_image_operation "071537020427" 113 42 "barcode-1.bmp" "reference/barcode-1.bmp"
 check_image_operation "071641818033" 113 42 "barcode-2.bmp" "reference/barcode-2.bmp"
 
+
+echo "TEST: valgrind ./build/image_calc \"071537020427\" 113 42 \"barcode-1.bmp\" "
+valgrind --leak-check=full --error-exitcode=1   ./build/image_calc "071537020427" 113 42 "barcode-1.bmp" > /dev/null
+
+if [ "$?" -eq 0 ]; then
+    ((score+=1))
+else
+    echo "  --FAIL!"
+    echo "  Valgrind found memory errors:"
+    cat valgrind.log
+fi
 
 echo "TEST: plotted images are present"
 if [ -f "plot.png" ]; then
@@ -68,4 +78,4 @@ else
     echo "  --FAIL!"
 fi
 
-echo "SCORE: $score/4"
+echo "SCORE: $score/5"

@@ -16,7 +16,6 @@ int main(int argc, char** argv){
         return -1;
     }
 
-    // TODO: allocate the space needed for one image.
 
     // TODO: call barcode
     
