@@ -48,16 +48,15 @@ An image has a width, height, and an array of pixels.
 You will be manipulating these pictures in this assignment.
 
 #### View the images!
-- On GitHub (maybe you are viewing the readme from github already), click the following link: [/images/sky.bmp](/images/sky.bmp)
+- On GitHub (maybe you are viewing the readme from github already), click the following link: [/reference/barcode-1.bmp](/reference/barcode-1.bmp)
     - Click 'view raw'. You should see an image of a sky.
     - Note: If you want to see an image, you will need to view it outside of the environment. We recommend you do so by performing any manipulations and then pushing the results to this repo. You can then view the results on the github web interface.
 
 To find the dimension of an image, use the following command:
 
-```file images/barcode1.bmp```
+```file reference/barcode-1.bmp```
 
-- You should see the dimension: `640 x 426 x 24`. This means the image width is 640, the height is 426, and there are 24 bits used to represent each pixel (you can ignore this!).
-- You can use any of the images in the `image/` directory to test your program. 
+- You should see the dimension: `113 x 42 x 24`. This means the image width is 113, the height is 42, and there are 24 bits used to represent each pixel (you can ignore this!).
 
 
 ## Step 1: Allocate Space for an Image
@@ -256,7 +255,7 @@ You should see they produce identical results (they are both correct), however, 
 
 What is the functionality of filter1 and filter2? What do these two functions return?
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > TASK: How do `filter1` and `filter2` differ in their implementation? They are practically identical except for one small difference. Read the code for both functions. What is the difference?
 > Write your answer in `questions.txt`. Label your answer `(1)`.
 
