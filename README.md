@@ -29,7 +29,6 @@ For this project we supply you with:
 #### Your task for this assignment:
 - You will also need to complete `image_calc.c` which is the driver for our barcode generation program.
 - You will need to create `barcode.c`, which will implement the functionality of the image operations.
-- You will also need to fill in the missing pieces in the `Makefile` in order to build your program. Once completed you can simply type `make all` to build the programs.
 - You will also need to use `eval.sh` and `plot.py` in order to gather and plot the performance data of the image operations (see step 4 for more details).
 
 ### Image Representation
@@ -68,18 +67,12 @@ To find the dimension of an image, use the following command:
     - The command line arguments will be in the following format:
         - ```./build/image_calc <barcode_value> <width> <height> <output_path>```
 
-- In `image_calc.c` add code to `malloc` the space needed for an image struct **and its pixels**. You will need to initialize some of the members of the image struct.
-    - We will then pass an address to this allocated space to `loadimage` which will populate our image struct with the read-in data from a specified `.bmp` file.
-    - Double-check that your `image_calc.c` correctly populates the variables `input_filepath` with the input file path from argv and the variable `output_filepath` with the output file path from argv (so that `loadimage` and `saveimage` will be called correctly).
-
-- Now we want to check that we have properly processed the input image, so let's update our Makefile to properly compile the program
-    - Take a look at the comments and decide which parts of the Makefile are relevant to our current work
-    - What is missing? Go ahead and add what is needed.
-    - Once you're all set you should be able to run `make` without any errors.
-
-<!-- - At this point you should be able to run the command:
-    - ```./build/image_calc images/sky.bmp 640 426 reflect out_reflect.bmp```
-    - Since you have not implemented the image operations yet, this command will just save a copy of an identical image at `out_reflect.bmp`. Make sure that this works before moving on to the next step. -->
+- In `barcode.c` add code to `malloc` the space needed for an image struct **and its pixels**. You will need to initialize some of the members of the image struct.
+    - To start, have `barcode.c` return a pointer to this blank image back to `image_calc.c`.
+    - Double-check that your `image_calc.c` correctly populates the variable `output_filepath` with the output file path from argv (so that `saveimage` will be called correctly).
+- Once you're all set you should be able to run `make` without any errors.
+- Try running: ```./build/image_calc 071537020427 113 42 barcode barcode.bmp```
+    - This should produce a blank image at barcode.bmp.
 
 
 ## Step 2: Barcode 
@@ -229,7 +222,7 @@ Tips:
 
 - Connect barcode to your `image_calc.c` code. Consider that now, sometimes, `argv[1]` will contain not an input filepath, but instead input digit string to encode as a barcode.
 - Run:
-    - ```./build/image_calc 071537020427 113 42 barcode barcode.bmp```
+    - ```./build/image_calc 071537020427 113 42 barcode.bmp```
 - commit your changes, navigate to `barcode.bmp` on github.com, and click "view raw" in order to view your bmp image!
 
 At this point running `./test.sh` should show that your code passes the first three tests.
